@@ -1,20 +1,12 @@
-
-import Create from "@/components/Create"
-import Show from "@/components/Show"
-import React, { useState } from "react"
+import Gallery from '@/components/Gallery'
+import React, { useState } from 'react'
 
 const index = () => {
-  
-  const [tasks, settasks] = useState([])
-  
-
+  const [isShow, setIsShow] = useState(false)
   return (
     <div className='container mt-5 p-5 bg-light'>
-      
-    <Create tasks={tasks} settasks={settasks}/>
-    <Show tasks={tasks} settasks={settasks}/>
-    
-     
+    <button onClick={()=>{setIsShow(!isShow)}} className='btn btn-dark'>{isShow?"hide":"show"}</button>
+    {isShow&&<Gallery/>}
     </div>
   )
 }
